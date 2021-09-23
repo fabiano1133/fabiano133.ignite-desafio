@@ -8,16 +8,16 @@ describe('Users', () => {
     const response = await request(app)
       .post('/users')
       .send({
-        name: 'John Doe',
-        username: 'johndoe'
+        name: 'Fabiano Santos',
+        username: 'fabiano1133'
       })
     expect(201);
 
     expect(validate(response.body.id)).toBe(true);
 
     expect(response.body).toMatchObject({
-      name: 'John Doe',
-      username: 'johndoe',
+      name: 'Fabiano Santos',
+      username: 'fabiano1133',
       todos: []
     });
   });
@@ -26,15 +26,15 @@ describe('Users', () => {
     await request(app)
       .post('/users')
       .send({
-        name: 'John Doe',
-        username: 'johndoe'
+        name: 'Fabiano Santos',
+        username: 'fabiano1133'
       });
 
     const response = await request(app)
       .post('/users')
       .send({
-        name: 'John Doe',
-        username: 'johndoe'
+        name: 'Fabiano Santos',
+        username: 'fabiano1133'
       })
       .expect(400);
 
